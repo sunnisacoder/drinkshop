@@ -1,8 +1,0 @@
-[build]
-publish = "dist"
-command = "npm install gulp-clean-css gulp-uglify gulp-htmlmin --save-dev && npx gulp build"
-
-[[redirects]]
-from = "/*"
-to = "/index.php"
-status = 200

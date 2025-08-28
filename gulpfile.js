@@ -2,6 +2,8 @@ const gulp = require('gulp');
 const dartSass = require('sass');
 const gulpSass = require('gulp-sass')(dartSass);
 const browserSync = require('browser-sync').create();
+const cleanCSS = require('gulp-clean-css');
+const uglify = require('gulp-uglify');
 
 // ✅ 設定 PHP 伺服器的 Proxy（請確認 WAMP 的網址，如 `http://localhost/your_project/`）
 const proxyURL = 'http://localhost:8888/damingtea/'; // MAMP 預設端口為 8888
@@ -28,6 +30,37 @@ gulp.task('watch', () => {
     gulp.watch('./public/scss/**/*.scss', gulp.series('sass')); // 監聽 SCSS
     gulp.watch(['./public/*.php', './components/*.php']).on('change', browserSync.reload); // 監聽 PHP 變更
 });
+
+// **生產環境構建任務**
+gulp.task('build-css', () => {
+    return gulp.src('./public/scss/*.scss')
+        .pipe(gulpSass({outputStyle: 'compressed'}).on('error', gulpSass.logError))
+        .pipe(cleanCSS())
+        .pipe(gulp.dest('./dist/css'));
+});
+
+gulp.task('copy-js', () => {
+    return gulp.src('./*.js')
+        .pipe(gulp.dest('./dist'));
+});
+
+gulp.task('copy-static', () => {
+    return gulp.src(['./images/**/*'], { base: './' })
+        .pipe(gulp.dest('./dist'));
+});
+
+gulp.task('convert-php', (cb) => {
+    const { exec } = require('child_process');
+    exec('node build.js', (err) => {
+        if (err) {
+            console.error('Error converting PHP:', err);
+        }
+        cb();
+    });
+});
+
+// **生產環境構建**
+gulp.task('build', gulp.series('build-css', 'copy-js', 'copy-static', 'convert-php'));
 
 // **預設任務：編譯 SCSS + 監聽變更**
 gulp.task('default', gulp.series('sass', 'watch'));

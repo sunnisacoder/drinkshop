@@ -1,0 +1,8 @@
+[build]
+publish = "dist"
+command = "npm install && npx gulp build"
+
+[[redirects]]
+from = "/*"
+to = "/index.php"
+status = 200

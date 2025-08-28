@@ -1,6 +1,6 @@
 [build]
 publish = "dist"
-command = "npm install && npx gulp build"
+command = "npm install gulp-clean-css gulp-uglify gulp-htmlmin --save-dev && npx gulp build"
 
 [[redirects]]
 from = "/*"

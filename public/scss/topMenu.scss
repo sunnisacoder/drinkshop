@@ -1,0 +1,317 @@
+// 字體設定
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=Noto+Serif+TC:wght@200..900&display=swap");
+
+section.topMenu {
+  position: fixed;
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 95px;
+  //原本是 transparent 但當滑過 bannerArea 的 80% 時就變成#383b2d
+  background-color: transparent;
+  font-family: "Noto Serif TC", serif;
+  color: #eae5d9;
+
+  .wrap {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+    @media screen and (max-width: 1080px) {
+      display: none;
+    }
+  }
+  
+  .socialBox {
+    display: flex;
+    align-items: center;
+    gap: 1.4vw;
+  
+    a {
+      width: 40px;
+      height: 40px;
+      padding: 5px;
+      background-color: transparent;
+      transition: transform 0.5s ease;
+  
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(0) invert(1);
+      }
+      &:hover {
+        transform: translateY(-3px)
+      }
+    }
+  }
+}
+
+
+.rightBox {
+  display: flex;
+  align-items: center;
+  gap: 1.56vw;
+  position: relative;
+  .languageBox {
+    position: relative;
+    span {
+      transition: color 0.5s ease;
+    }
+    cursor: pointer;
+    &:hover {
+      span {
+        color: rgb(176, 100, 75);
+      }
+    }
+    .languageSelect {
+      position: absolute;
+      top: 25px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      opacity: 0;
+      background-color: #edebe1;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      color: #2c4c47;
+      font-family: "Cormorant", "Noto Serif TC", serif;
+      font-size: 15px;
+      transition: opacity 0.5s ease;
+
+      option {
+        display: flex;
+        justify-content: center;
+        padding: 8px 0;
+        transition: background-color 0.5s ease;
+        &:hover {
+          background-color: rgb(176, 100, 75);
+          color: #edebe1;
+        }
+        &.current {
+          background-color: rgb(176, 100, 75);
+          color: #edebe1;
+        }
+      }
+
+      &.active {
+        opacity: 1;
+      }
+    }
+  }
+  li {
+    position: relative;
+    display: flex;
+
+    &:hover {
+      &::after {
+        width: 100%;
+      }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      width: 0%;
+      height: 2px;
+      background-color: #eae5d9;
+      transition: width 0.5s ease;
+    }
+  }
+}
+.menuList {
+  display: flex;
+  background-color: #fff;
+  opacity: 0;
+  position: absolute;
+  right: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+  clip-path: inset(0 0 0 100%);
+  transition:
+    opacity 0.5s ease-out,
+    clip-path 0.8s ease-in-out;
+  color: #414535;
+  border-radius: 10px;
+  ul.menu {
+    display: flex;
+    padding: 20px 100px 20px 60px;
+  }
+  .language {
+    display: flex;
+    align-items: center;
+    span {
+      padding: 0 16px;
+      cursor: pointer;
+      position: relative;
+      transition: color 0.5s ease;
+
+      &:not(:last-child)::after {
+        content: "/";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        color: rgba(65, 69, 53, 0.3);
+      }
+      &:hover {
+        color: rgb(176, 100, 75);
+      }
+      &.current {
+        color: rgb(176, 100, 75);
+      }
+    }
+  }
+  &.show {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+  li {
+    position: relative;
+    padding: 0 28px;
+    font-weight: 600;
+    transition: color 0.5s ease;
+    cursor: pointer;
+    &.current {
+      color: rgb(176, 100, 75);
+    }
+    &:hover {
+      color: rgb(176, 100, 75);
+    }
+    &::after {
+      content: "/";
+      position: absolute;
+      top: 50%;
+      right: -3px;
+      transform: translateY(-50%);
+      color: rgba(65, 69, 53, 0.3);
+      transition: width 0.5s ease;
+    }
+    &:last-of-type {
+      &::after {
+        display: none;
+      }
+    }
+  }
+  .menuBtn {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 0 10px;
+  }
+}
+.menuBtn-mb {
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+}
+.menuList-mb {
+  color: #414535;
+  visibility: hidden;
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: -30px;
+  width: 415px;
+  height: fit-content;
+  mask-image: url("../../images/menu-mask.svg");
+  mask-repeat: no-repeat;
+  mask-position: left bottom;
+  clip-path: circle(0% at 100% 0);
+  transition:
+    clip-path 0.5s ease-in-out,
+    visibility 1s ease-in-out;
+  .close {
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .inner {
+    padding: 30px 30px 64px 90px;
+    ul {
+      margin-top: 10px;
+      li {
+        position: relative;
+        display: block;
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        line-height: 1;
+        color: #414535;
+        text-align: center;
+        padding: 16px 0;
+        transition: color 0.5s ease;
+        cursor: pointer;
+        &:hover {
+          color: rgb(176, 100, 75);
+        }
+        &:not(:last-child) {
+          border-bottom: 1px solid #eae5d9;
+        }
+      }
+    }
+  }
+  &.show {
+    visibility: visible;
+    clip-path: circle(200% at 100% 0);
+  }
+}
+
+.wrap-mb {
+  display: none;
+  @media screen and (max-width: 1080px) {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    top: 30px;
+  }
+  .language {
+    margin-top: 24px;
+    span {
+      padding: 0 16px;
+      cursor: pointer;
+      position: relative;
+      transition: color 0.5s ease;
+
+      &:not(:last-child)::after {
+        content: "/";
+        position: absolute;
+        top: 50%;
+        right: -3px;
+        transform: translateY(-50%);
+        color: rgba(65, 69, 53, 0.3);
+      }
+      &:hover {
+        color: rgb(176, 100, 75);
+      }
+      &.current {
+        color: rgb(176, 100, 75);
+      }
+    }
+  }
+  .btnBox {
+    margin: 20px 0 32px 0;
+    display: flex;
+    gap: 15px;
+    a {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      line-height: normal;
+      color: #eae5d9;
+      padding: 0.5rem 1.25rem;
+      background-color: #b0644b;
+      border-radius: 1.875rem;
+    }
+  }
+  .language,
+  .socialBox {
+    display: flex;
+    justify-content: center;
+  }
+}

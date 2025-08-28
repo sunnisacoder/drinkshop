@@ -1,0 +1,300 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=Noto+Serif+TC:wght@200..900&display=swap");
+section.topMenu {
+  position: fixed;
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 95px;
+  background-color: transparent;
+  font-family: "Noto Serif TC", serif;
+  color: #eae5d9;
+}
+section.topMenu .wrap {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+}
+@media screen and (max-width: 1080px) {
+  section.topMenu .wrap {
+    display: none;
+  }
+}
+section.topMenu .socialBox {
+  display: flex;
+  align-items: center;
+  gap: 1.4vw;
+}
+section.topMenu .socialBox a {
+  width: 40px;
+  height: 40px;
+  padding: 5px;
+  background-color: transparent;
+  transition: transform 0.5s ease;
+}
+section.topMenu .socialBox a img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0) invert(1);
+}
+section.topMenu .socialBox a:hover {
+  transform: translateY(-3px);
+}
+
+.rightBox {
+  display: flex;
+  align-items: center;
+  gap: 1.56vw;
+  position: relative;
+}
+.rightBox .languageBox {
+  position: relative;
+  cursor: pointer;
+}
+.rightBox .languageBox span {
+  transition: color 0.5s ease;
+}
+.rightBox .languageBox:hover span {
+  color: rgb(176, 100, 75);
+}
+.rightBox .languageBox .languageSelect {
+  position: absolute;
+  top: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  opacity: 0;
+  background-color: #edebe1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  color: #2c4c47;
+  font-family: "Cormorant", "Noto Serif TC", serif;
+  font-size: 15px;
+  transition: opacity 0.5s ease;
+}
+.rightBox .languageBox .languageSelect option {
+  display: flex;
+  justify-content: center;
+  padding: 8px 0;
+  transition: background-color 0.5s ease;
+}
+.rightBox .languageBox .languageSelect option:hover {
+  background-color: rgb(176, 100, 75);
+  color: #edebe1;
+}
+.rightBox .languageBox .languageSelect option.current {
+  background-color: rgb(176, 100, 75);
+  color: #edebe1;
+}
+.rightBox .languageBox .languageSelect.active {
+  opacity: 1;
+}
+.rightBox li {
+  position: relative;
+  display: flex;
+}
+.rightBox li:hover::after {
+  width: 100%;
+}
+.rightBox li::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  width: 0%;
+  height: 2px;
+  background-color: #eae5d9;
+  transition: width 0.5s ease;
+}
+
+.menuList {
+  display: flex;
+  background-color: #fff;
+  opacity: 0;
+  position: absolute;
+  right: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+  clip-path: inset(0 0 0 100%);
+  transition: opacity 0.5s ease-out, clip-path 0.8s ease-in-out;
+  color: #414535;
+  border-radius: 10px;
+}
+.menuList ul.menu {
+  display: flex;
+  padding: 20px 100px 20px 60px;
+}
+.menuList .language {
+  display: flex;
+  align-items: center;
+}
+.menuList .language span {
+  padding: 0 16px;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.5s ease;
+}
+.menuList .language span:not(:last-child)::after {
+  content: "/";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  color: rgba(65, 69, 53, 0.3);
+}
+.menuList .language span:hover {
+  color: rgb(176, 100, 75);
+}
+.menuList .language span.current {
+  color: rgb(176, 100, 75);
+}
+.menuList.show {
+  opacity: 1;
+  clip-path: inset(0 0 0 0);
+}
+.menuList li {
+  position: relative;
+  padding: 0 28px;
+  font-weight: 600;
+  transition: color 0.5s ease;
+  cursor: pointer;
+}
+.menuList li.current {
+  color: rgb(176, 100, 75);
+}
+.menuList li:hover {
+  color: rgb(176, 100, 75);
+}
+.menuList li::after {
+  content: "/";
+  position: absolute;
+  top: 50%;
+  right: -3px;
+  transform: translateY(-50%);
+  color: rgba(65, 69, 53, 0.3);
+  transition: width 0.5s ease;
+}
+.menuList li:last-of-type::after {
+  display: none;
+}
+.menuList .menuBtn {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 0 10px;
+}
+
+.menuBtn-mb {
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+}
+
+.menuList-mb {
+  color: #414535;
+  visibility: hidden;
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: -30px;
+  width: 415px;
+  height: fit-content;
+  mask-image: url("../../images/menu-mask.svg");
+  mask-repeat: no-repeat;
+  mask-position: left bottom;
+  clip-path: circle(0% at 100% 0);
+  transition: clip-path 0.5s ease-in-out, visibility 1s ease-in-out;
+}
+.menuList-mb .close {
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
+}
+.menuList-mb .inner {
+  padding: 30px 30px 64px 90px;
+}
+.menuList-mb .inner ul {
+  margin-top: 10px;
+}
+.menuList-mb .inner ul li {
+  position: relative;
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  color: #414535;
+  text-align: center;
+  padding: 16px 0;
+  transition: color 0.5s ease;
+  cursor: pointer;
+}
+.menuList-mb .inner ul li:hover {
+  color: rgb(176, 100, 75);
+}
+.menuList-mb .inner ul li:not(:last-child) {
+  border-bottom: 1px solid #eae5d9;
+}
+.menuList-mb.show {
+  visibility: visible;
+  clip-path: circle(200% at 100% 0);
+}
+
+.wrap-mb {
+  display: none;
+}
+@media screen and (max-width: 1080px) {
+  .wrap-mb {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    top: 30px;
+  }
+}
+.wrap-mb .language {
+  margin-top: 24px;
+}
+.wrap-mb .language span {
+  padding: 0 16px;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.5s ease;
+}
+.wrap-mb .language span:not(:last-child)::after {
+  content: "/";
+  position: absolute;
+  top: 50%;
+  right: -3px;
+  transform: translateY(-50%);
+  color: rgba(65, 69, 53, 0.3);
+}
+.wrap-mb .language span:hover {
+  color: rgb(176, 100, 75);
+}
+.wrap-mb .language span.current {
+  color: rgb(176, 100, 75);
+}
+.wrap-mb .btnBox {
+  margin: 20px 0 32px 0;
+  display: flex;
+  gap: 15px;
+}
+.wrap-mb .btnBox a {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: normal;
+  color: #eae5d9;
+  padding: 0.5rem 1.25rem;
+  background-color: #b0644b;
+  border-radius: 1.875rem;
+}
+.wrap-mb .language,
+.wrap-mb .socialBox {
+  display: flex;
+  justify-content: center;
+}

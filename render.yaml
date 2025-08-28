@@ -3,7 +3,6 @@ services:
     name: drinkshop
     env: docker
     dockerfilePath: ./Dockerfile
-    startCommand: apache2-foreground
     envVars:
       - key: PORT
         value: 80

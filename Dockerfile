@@ -17,3 +17,5 @@ COPY public/css/ /var/www/html/public/css/
 
 # Set permissions
 RUN chown -R www-data:www-data /var/www/html
+
+CMD ["php", "-S", "localhost:80", "-t", "/var/www/html"]

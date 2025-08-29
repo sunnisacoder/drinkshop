@@ -231,11 +231,11 @@ body {
         }
         .dot {
           position: absolute;
-          width: 3px;
-          height: 3px;
-          background-color: #414535;
+          width: 8px;
+          height: 8px;
+          background-color: white;
           border-radius: 50%;
-          z-index: 2;
+          z-index: 0;
 
           &::after {
             content: "";
@@ -243,27 +243,27 @@ body {
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 6px;
-            height: 6px;
-            background-color: white;
+            width: 4px;
+            height: 4px;
+            background-color: #414535;
             border-radius: 50%;
-            z-index: -1;
+            z-index: 2;
           }
           &:nth-of-type(1) {
-            top: 8px;
-            left: 8px;
+            top: 5px;
+            left: 5px;
           }
           &:nth-of-type(2) {
-            top: 8px;
-            right: 8px;
+            top: 5px;
+            right: 5px;
           }
           &:nth-of-type(3) {
-            bottom: 8px;
-            left: 8px;
+            bottom: 5px;
+            left: 5px;
           }
           &:nth-of-type(4) {
-            bottom: 8px;
-            right: 8px;
+            bottom: 5px;
+            right: 5px;
           }
         }
       }
@@ -338,17 +338,17 @@ body {
           padding: 10px;
           border: 1px solid #414535;
           @media screen and (max-width: 768px) {
-            font-size: 18px;
+            font-size: 15px;
             padding: 5px;
           }
         }
         .dot {
           position: absolute;
-          width: 3px;
-          height: 3px;
-          background-color: #414535;
+          width: 6px;
+          height: 6px;
+          background-color: white;
           border-radius: 50%;
-          z-index: 2;
+          z-index: 0;
 
           &::after {
             content: "";
@@ -356,27 +356,27 @@ body {
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 6px;
-            height: 6px;
-            background-color: white;
+            width: 3px;
+            height: 3px;
+            background-color: #414535;
             border-radius: 50%;
-            z-index: -1;
+            z-index: 2;
           }
           &:nth-of-type(1) {
-            top: 8px;
-            left: 8px;
+            top: 6px;
+            left: 6px;
           }
           &:nth-of-type(2) {
-            top: 8px;
-            right: 8px;
+            top: 6px;
+            right: 6px;
           }
           &:nth-of-type(3) {
-            bottom: 8px;
-            left: 8px;
+            bottom: 6px;
+            left: 6px;
           }
           &:nth-of-type(4) {
-            bottom: 8px;
-            right: 8px;
+            bottom: 6px;
+            right: 6px;
           }
         }
       }
@@ -599,7 +599,7 @@ body {
         .bcBox {
           position: relative;
           width: 100%;
-          mask-image: url("../images/drink-bc.png");
+          mask-image: url("/images/drink-bc.png");
           background-color: #404333;
           mask-size: contain;
           mask-position: center;
@@ -1177,7 +1177,7 @@ body {
       transform: scale(0.38);
     }
     .inner {
-      mask-image: url("../images/about-mask.svg");
+      mask-image: url("/images/about-mask.svg");
       mask-size: contain;
       mask-position: center;
       mask-repeat: no-repeat;

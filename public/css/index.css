@@ -8,16 +8,14 @@
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: #dedbd4;
+  background-color: #DEDBD4;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 9999;
   opacity: 1;
   visibility: visible;
-  transition:
-    opacity 1.5s ease-in-out,
-    visibility 1.5s ease-in-out;
+  transition: opacity 1.5s ease-in-out, visibility 1.5s ease-in-out;
 }
 .preloader.hide {
   opacity: 0;
@@ -26,7 +24,7 @@
 .preloader .loader {
   width: 48px;
   height: 48px;
-  border: 3px solid #7a9283;
+  border: 3px solid #7A9283;
   border-bottom-color: transparent;
   border-radius: 50%;
   display: inline-block;
@@ -119,6 +117,7 @@
 
 body {
   background-color: #edebe1;
+  overflow: hidden;
 }
 
 .titleBox {
@@ -207,7 +206,7 @@ body {
   width: 100%;
   height: 100%;
   z-index: -1;
-  background-image: url("../images/fruit-bg.png");
+  background-image: url("/images/fruit-bg.png");
   opacity: 0.1;
 }
 .bannerArea .bannerMask {
@@ -280,11 +279,11 @@ body {
 }
 .bannerArea .secondBox .drinkBox .vertical .dot {
   position: absolute;
-  width: 3px;
-  height: 3px;
-  background-color: #414535;
+  width: 8px;
+  height: 8px;
+  background-color: white;
   border-radius: 50%;
-  z-index: 2;
+  z-index: 0;
 }
 .bannerArea .secondBox .drinkBox .vertical .dot::after {
   content: "";
@@ -292,27 +291,27 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 6px;
-  height: 6px;
-  background-color: white;
+  width: 4px;
+  height: 4px;
+  background-color: #414535;
   border-radius: 50%;
-  z-index: -1;
+  z-index: 2;
 }
 .bannerArea .secondBox .drinkBox .vertical .dot:nth-of-type(1) {
-  top: 8px;
-  left: 8px;
+  top: 5px;
+  left: 5px;
 }
 .bannerArea .secondBox .drinkBox .vertical .dot:nth-of-type(2) {
-  top: 8px;
-  right: 8px;
+  top: 5px;
+  right: 5px;
 }
 .bannerArea .secondBox .drinkBox .vertical .dot:nth-of-type(3) {
-  bottom: 8px;
-  left: 8px;
+  bottom: 5px;
+  left: 5px;
 }
 .bannerArea .secondBox .drinkBox .vertical .dot:nth-of-type(4) {
-  bottom: 8px;
-  right: 8px;
+  bottom: 5px;
+  right: 5px;
 }
 .bannerArea .secondBox .drinkBox .title {
   color: #eae5d9;
@@ -324,8 +323,7 @@ body {
   margin: 0 auto;
   margin-bottom: 36px;
 }
-.bannerArea .secondBox .drinkBox .title:before,
-.bannerArea .secondBox .drinkBox .title:after {
+.bannerArea .secondBox .drinkBox .title:before, .bannerArea .secondBox .drinkBox .title:after {
   content: "";
   display: block;
   width: 100%;
@@ -392,17 +390,17 @@ body {
 }
 @media screen and (max-width: 768px) {
   .bannerArea .secondBox .drinkBox-mb .vertical p {
-    font-size: 18px;
+    font-size: 15px;
     padding: 5px;
   }
 }
 .bannerArea .secondBox .drinkBox-mb .vertical .dot {
   position: absolute;
-  width: 3px;
-  height: 3px;
-  background-color: #414535;
+  width: 6px;
+  height: 6px;
+  background-color: white;
   border-radius: 50%;
-  z-index: 2;
+  z-index: 0;
 }
 .bannerArea .secondBox .drinkBox-mb .vertical .dot::after {
   content: "";
@@ -410,27 +408,27 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 6px;
-  height: 6px;
-  background-color: white;
+  width: 3px;
+  height: 3px;
+  background-color: #414535;
   border-radius: 50%;
-  z-index: -1;
+  z-index: 2;
 }
 .bannerArea .secondBox .drinkBox-mb .vertical .dot:nth-of-type(1) {
-  top: 8px;
-  left: 8px;
+  top: 6px;
+  left: 6px;
 }
 .bannerArea .secondBox .drinkBox-mb .vertical .dot:nth-of-type(2) {
-  top: 8px;
-  right: 8px;
+  top: 6px;
+  right: 6px;
 }
 .bannerArea .secondBox .drinkBox-mb .vertical .dot:nth-of-type(3) {
-  bottom: 8px;
-  left: 8px;
+  bottom: 6px;
+  left: 6px;
 }
 .bannerArea .secondBox .drinkBox-mb .vertical .dot:nth-of-type(4) {
-  bottom: 8px;
-  right: 8px;
+  bottom: 6px;
+  right: 6px;
 }
 .bannerArea .secondBox .drinkBox-mb .drinkImgBox {
   position: relative;
@@ -1377,15 +1375,13 @@ body {
   mask-position: center;
   mask-repeat: no-repeat;
 }
-
 .aboutArea .rightBox .deco-01 {
   position: absolute;
   top: 0;
   left: 0;
   width: 210px;
   z-index: -1;
-  filter: brightness(0) saturate(100%) invert(88%) sepia(21%) saturate(376%) hue-rotate(347deg) brightness(84%)
-    contrast(92%);
+  filter: brightness(0) saturate(100%) invert(88%) sepia(21%) saturate(376%) hue-rotate(347deg) brightness(84%) contrast(92%);
 }
 .aboutArea .rightBox .deco-02 {
   position: absolute;
@@ -1393,8 +1389,7 @@ body {
   right: 0;
   width: 160px;
   z-index: -1;
-  filter: brightness(0) saturate(100%) invert(42%) sepia(17%) saturate(1693%) hue-rotate(329deg) brightness(96%)
-    contrast(81%);
+  filter: brightness(0) saturate(100%) invert(42%) sepia(17%) saturate(1693%) hue-rotate(329deg) brightness(96%) contrast(81%);
 }
 .aboutArea .rightBox .deco-03 {
   position: absolute;
@@ -1402,8 +1397,7 @@ body {
   right: 0;
   width: 260px;
   z-index: -1;
-  filter: brightness(0) saturate(100%) invert(88%) sepia(21%) saturate(376%) hue-rotate(347deg) brightness(84%)
-    contrast(92%);
+  filter: brightness(0) saturate(100%) invert(88%) sepia(21%) saturate(376%) hue-rotate(347deg) brightness(84%) contrast(92%);
 }
 
 .storeArea {

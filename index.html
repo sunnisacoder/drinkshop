@@ -924,13 +924,14 @@
         });
 
         //footer gotop
+        smoothscroll.polyfill();
         const goTop = document.querySelector('.goTop');
 
         goTop.addEventListener('click', () => {
             const bannerArea = document.querySelector('.bannerArea');
             bannerArea.scrollIntoView({
                 behavior: 'smooth'
-            }); //auto是直接跳過去
+            }); 
         });
     </script>
 </body>

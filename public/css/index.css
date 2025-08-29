@@ -117,7 +117,6 @@
 
 body {
   background-color: #edebe1;
-  overflow: hidden;
 }
 
 .titleBox {
@@ -206,7 +205,7 @@ body {
   width: 100%;
   height: 100%;
   z-index: -1;
-  background-image: url("/images/fruit-bg.png");
+  background-image: url("../images/fruit-bg.png");
   opacity: 0.1;
 }
 .bannerArea .bannerMask {
@@ -372,7 +371,7 @@ body {
   gap: 3.33vw;
 }
 .bannerArea .secondBox .drinkBox-mb .vertical {
-  background-color: white;
+  background-color: transparent;
   padding: 8px;
   border-radius: 5px;
   position: relative;
@@ -387,6 +386,7 @@ body {
   writing-mode: vertical-lr;
   padding: 10px;
   border: 1px solid #414535;
+  border-radius: 5px;
 }
 @media screen and (max-width: 768px) {
   .bannerArea .secondBox .drinkBox-mb .vertical p {
@@ -401,6 +401,7 @@ body {
   background-color: white;
   border-radius: 50%;
   z-index: 0;
+  opacity: 0;
 }
 .bannerArea .secondBox .drinkBox-mb .vertical .dot::after {
   content: "";

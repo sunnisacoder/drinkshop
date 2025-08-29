@@ -88,7 +88,7 @@
 
 body {
   background-color: #edebe1;
-  overflow: hidden;
+  // overflow: hidden;
 }
 
 .titleBox {
@@ -323,7 +323,7 @@ body {
         gap: 3.33vw;
       }
       .vertical {
-        background-color: white;
+        background-color: transparent;
         padding: 8px;
         border-radius: 5px;
         position: relative;
@@ -337,6 +337,7 @@ body {
           writing-mode: vertical-lr;
           padding: 10px;
           border: 1px solid #414535;
+          border-radius: 5px;
           @media screen and (max-width: 768px) {
             font-size: 15px;
             padding: 5px;
@@ -349,6 +350,7 @@ body {
           background-color: white;
           border-radius: 50%;
           z-index: 0;
+          opacity: 0;
 
           &::after {
             content: "";

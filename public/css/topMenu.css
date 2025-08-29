@@ -202,7 +202,7 @@ section.topMenu .socialBox a:hover {
   margin-top: -30px;
   width: 415px;
   height: fit-content;
-  mask-image: url("../../images/menu-mask.svg");
+  mask-image: url("/images/menu-mask.svg");
   mask-repeat: no-repeat;
   mask-position: left bottom;
   clip-path: circle(0% at 100% 0);
